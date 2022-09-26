@@ -1,6 +1,5 @@
-# Ejemplo Documentación Dojos
-![Tinkercad](./img/ArduinoTinkercad.jpg)
-
+# Proyecto: Sistema que mida temperatura con camara frigorifica.
+![Tinkercad](./img/proyecto.png)
 
 ## Integrantes 
 - Maximiliano Gomez
@@ -8,13 +7,11 @@
 - Martin Virum
 - Ricardo Gonzalez
 - Geronimo Camacho
-
-## Proyecto: Sistema que mida temperatura con camara frigorifica.
-![Tinkercad](./img/proyecto.png)
-
+- Emiliano Gorgellon
 
 ## Descripción
-En este parrafo deberan describir que funcion cumple su proyecto. Que solucion esta ofreciendo.
+La funcion de este codigo, es informar al usuario el nivel, un numero exacto y atraves de los leds representamos un indicio de la temperatura dentro
+solucionando todas las preguntas sobre la temperatura dentro de la cámara frigorífica.
 
 ## Función principal
 Esta funcion se encarga de encender y apagar los leds.
@@ -45,6 +42,7 @@ void loop()
   else
   {
     printDigit('d');
+    prenderLedVerde();
   }
   
    
