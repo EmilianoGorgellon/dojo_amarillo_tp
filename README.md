@@ -1,10 +1,10 @@
-# Proyecto: Sistema que mida temperatura con camara frigorifica.
+# Proyecto: Sistema que mida temperatura en camara frigorifica.
 ![Tinkercad](./img/proyecto.png)
 
 ## Integrantes 
 - Maximiliano Gomez
 - Guido Gabriel Pascucci
-- Martin Virum
+- Martin Virun
 - Ricardo Gonzalez
 - Geronimo Camacho
 - Emiliano Gorgellon
@@ -12,10 +12,10 @@
 ## Descripción
 La funcion de este codigo, es informar al usuario el nivel, un numero exacto y atraves de los leds representamos un indicio de la temperatura dentro
 solucionando todas las preguntas sobre la temperatura dentro de la cámara frigorífica.
+Se agrego la funcionalidad de una tecla que en caso de estar prendida permite la funcion de los leds y display pero en caso de estar apagada no funcionaria.
 
 ## Función principal
-Esta funcion se encarga de encender y apagar los leds.
-
+Esta funcion se encarga de encender los leds y display segun la temperatura del sensor.
 SENSOR_TEMPERATURA es un #define que utilizamos para leer los valores del sensor de temperatura asociado al pin de arduino. La funcion map permite que los valores del sensor pasarlos a grado celcius.
 
 
