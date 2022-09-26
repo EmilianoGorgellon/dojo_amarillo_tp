@@ -22,30 +22,32 @@ SENSOR_TEMPERATURA es un #define que utilizamos para leer los valores del sensor
 ~~~ c (lenguaje en el que esta escrito)
 void loop()
 {
-  
+  valor_potenciometro = analogRead(A0);
   lecturaAnalogica = analogRead(SENSOR_TEMPERATURA);
   temperatura= map(lecturaAnalogica,20,358, -40, 125);
   Serial.print("La temperatura es : ");
-  Serial.println(temperatura);
+  Serial.print(temperatura);
+  Serial.println(" grados");
+  switchA1 = digitalRead(A1);
   
-  
-  if(temperatura>24)
-  {
+  if(switchA1 == 0){
+  	if(temperatura>24){
     printDigit('c');
     prenderLedRojo();
-  } 
-  else if(temperatura<0)
-  {
+  	} 
+  	else if(temperatura<0){
     printDigit('f');
     prenderLedAzul();
-  }
-  else
-  {
+  	}
+  	else
+  	{
     printDigit('d');
     prenderLedVerde();
-  }
-  
-   
+  	}
+  	} else {
+  	apagarDisplay();
+    apagarLeds();
+  	}
 }
 
 ~~~
