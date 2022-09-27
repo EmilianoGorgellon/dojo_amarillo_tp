@@ -36,7 +36,6 @@ SENSOR_TEMPERATURA es un #define que utilizamos para leer los valores del sensor
 
 int lecturaAnalogica=0;
 int temperatura = 0;
-int valor_potenciometro = 0;
 int switchA1 = 0;
 
 
@@ -58,7 +57,6 @@ void setup()
 
 void loop()
 {
-  valor_potenciometro = analogRead(A0);
   lecturaAnalogica = analogRead(SENSOR_TEMPERATURA);
   temperatura= map(lecturaAnalogica,20,358, -40, 125);
   Serial.print("La temperatura es : ");
