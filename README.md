@@ -20,6 +20,42 @@ SENSOR_TEMPERATURA es un #define que utilizamos para leer los valores del sensor
 
 
 ~~~ c (lenguaje en el que esta escrito)
+#define A 12
+#define B 13
+#define C 7
+#define D 8
+#define E 9
+#define F 11
+#define G 10
+#define AZUL 2
+#define ROJO 3
+#define VERDE 4
+#define SENSOR_TEMPERATURA A0
+#define POTENCIOMETRO A1
+
+
+int lecturaAnalogica=0;
+int temperatura = 0;
+int valor_potenciometro = 0;
+int switchA1 = 0;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(A1, INPUT);
+}
+
 void loop()
 {
   valor_potenciometro = analogRead(A0);
@@ -32,22 +68,88 @@ void loop()
   
   if(switchA1 == 0){
   	if(temperatura>24){
-    printDigit('c');
-    prenderLedRojo();
+      printDigit('c');
+      prenderLedRojo();
   	} 
   	else if(temperatura<0){
-    printDigit('f');
-    prenderLedAzul();
+      printDigit('f');
+      prenderLedAzul();
   	}
   	else
   	{
-    printDigit('d');
-    prenderLedVerde();
+      printDigit('d');
+      prenderLedVerde();
   	}
   	} else {
-  	apagarDisplay();
-    apagarLeds();
+      apagarDisplay();
+      apagarLeds();
   	}
+}
+
+void printDigit(char valor)
+{
+  apagarDisplay();
+  
+  switch (valor)
+  {
+  	case 'c':
+  	{
+        digitalWrite(A, HIGH);
+ 	    digitalWrite(D, HIGH);
+        digitalWrite(E, HIGH);
+        digitalWrite(F, HIGH);
+      	break;
+  	}
+    case 'f':
+  	{
+        digitalWrite(A, HIGH);
+        digitalWrite(E, HIGH);
+        digitalWrite(F, HIGH);
+        digitalWrite(G, HIGH);
+      	
+      	break;
+  	}
+  
+    case 'd':
+      digitalWrite(B, HIGH);
+   	  digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+  }
+
+}
+
+void prenderLedRojo(){
+  apagarLeds();
+  digitalWrite(ROJO, HIGH);
+}
+
+void prenderLedAzul(){
+  apagarLeds();
+  digitalWrite(AZUL, HIGH);
+}
+
+void prenderLedVerde(){
+  apagarLeds();
+  digitalWrite(VERDE, HIGH);
+}
+
+void apagarLeds(){
+  digitalWrite(AZUL, LOW);
+  digitalWrite(ROJO, LOW);
+  digitalWrite(VERDE, LOW);
+}
+
+void apagarDisplay(){
+  digitalWrite(A, LOW);
+  digitalWrite(B, LOW);
+  digitalWrite(C, LOW);
+  digitalWrite(D, LOW);
+  digitalWrite(E, LOW);
+  digitalWrite(F, LOW);
+  digitalWrite(G, LOW);
 }
 
 ~~~
